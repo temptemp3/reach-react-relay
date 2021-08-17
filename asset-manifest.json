@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/reach-react-relay/static/css/main.cab4ec0a.chunk.css",
+    "main.js": "/reach-react-relay/static/js/main.5e097154.chunk.js",
+    "main.js.map": "/reach-react-relay/static/js/main.5e097154.chunk.js.map",
+    "runtime-main.js": "/reach-react-relay/static/js/runtime-main.1def118c.js",
+    "runtime-main.js.map": "/reach-react-relay/static/js/runtime-main.1def118c.js.map",
+    "static/css/2.da1eef19.chunk.css": "/reach-react-relay/static/css/2.da1eef19.chunk.css",
+    "static/js/2.bc55d109.chunk.js": "/reach-react-relay/static/js/2.bc55d109.chunk.js",
+    "static/js/2.bc55d109.chunk.js.map": "/reach-react-relay/static/js/2.bc55d109.chunk.js.map",
+    "static/js/3.6b28daf3.chunk.js": "/reach-react-relay/static/js/3.6b28daf3.chunk.js",
+    "static/js/3.6b28daf3.chunk.js.map": "/reach-react-relay/static/js/3.6b28daf3.chunk.js.map",
+    "index.html": "/reach-react-relay/index.html",
+    "static/css/2.da1eef19.chunk.css.map": "/reach-react-relay/static/css/2.da1eef19.chunk.css.map",
+    "static/css/main.cab4ec0a.chunk.css.map": "/reach-react-relay/static/css/main.cab4ec0a.chunk.css.map",
+    "static/js/2.bc55d109.chunk.js.LICENSE.txt": "/reach-react-relay/static/js/2.bc55d109.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1def118c.js",
+    "static/css/2.da1eef19.chunk.css",
+    "static/js/2.bc55d109.chunk.js",
+    "static/css/main.cab4ec0a.chunk.css",
+    "static/js/main.5e097154.chunk.js"
+  ]
+}
