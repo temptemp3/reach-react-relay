@@ -157,17 +157,6 @@ function App() {
         )}
       </Row>}
       <Row className="mt-5 role role-alice">
-        <Col xs={12} className="mb-3">
-          <h2>
-            Send funds
-          </h2>
-        </Col>
-        <Col xs={3}>
-          <Form.Control name="AMT" size="lg" type="text" placeholder="Amount" onChange={handleChange} />
-        </Col>
-        <Col xs={3}>
-          <Button size="lg" onClick={handleAlice} disabled={!state.acc}>Send</Button>
-        </Col>
         {state.ctcInfo &&
           <Col xs={12}>
             info: <br />
@@ -178,34 +167,69 @@ function App() {
           <Col xs={12}>
             mnemonic phrase: <br />
             {state.relay.acc?.networkAccount?.mnemonic?.phrase}
-          </Col>) : ( state.relay.acc?.networkAccount &&
+          </Col>) : (state.relay.acc?.networkAccount &&
             <Col xs={12}>
-            secret: <br />
-            {state.relay.acc.networkAccount.sk.toString()}
-          </Col>
+              secret: <br />
+              {state.relay.acc.networkAccount.sk.toString()}
+            </Col>
         )}
       </Row>
-      <Row className="mt-5 role role-bob">
-        <Col xs={12} className="mb-3">
-          <h2>Receive funds</h2>
-        </Col>
-        <Col xs={3}>
-          <Form.Control name={REACT_APP_NETWORK === 'ETH' ? "ADDR" : "INFO"} size="lg" type={REACT_APP_NETWORK === 'ETH' ? "text" : "number"} placeholder="Info" onChange={handleChange} />
-        </Col>
-
-        {REACT_APP_NETWORK === 'ETH' ? (
-          <Col xs={6}>
-            <Form.Control name="MNE" size="lg" type="text" placeholder="Mnemonic" onChange={handleChange} />
+      {[
+        {
+          name: "alice",
+          title: "Send funds",
+          controls: [
+            { col: {}, control: { name: "AMT", placeholder: "Amount" } },
+          ],
+          buttonLabel: "Send",
+          buttonProps: {
+            onClick: handleAlice,
+            disabled: !state.acc
+          }
+        },
+        {
+          name: "bob",
+          title: "Receive funds",
+          controls: [
+            {
+              col: {},
+              control: {
+                name: REACT_APP_NETWORK === 'ETH' ? "ADDR" : "INFO",
+                type: REACT_APP_NETWORK === 'ETH' ? "text" : "number",
+                placeholder: "Info",
+              }
+            },
+            {
+              col: { xs: 6 },
+              control: {
+                name: REACT_APP_NETWORK === 'ETH' ? "MNE" : "SK",
+                placeholder: REACT_APP_NETWORK === 'ETH' ? "Mnemonic" : "Secret",
+              }
+            }
+          ],
+          buttonLabel: "Receive",
+          buttonProps: {
+            onClick: handleBob,
+            disabled: !state.acc
+          }
+        }
+      ].map(role =>
+        <Row className={`mt-5 role ${role.name}`}>
+          <Col xs={12} className="mb-3">
+            <h2>
+              {role.title}
+            </h2>
           </Col>
-        ) : (
-          <Col xs={6}>
-            <Form.Control name="SK" size="lg" type="text" placeholder="Secret" onChange={handleChange} />
+          {role.controls.map(el =>
+            <Col xs={3} {...el.col}>
+              <Form.Control className="mb-3" size="lg" type="text" onChange={handleChange} {...el.control} />
+            </Col>
+          )}
+          <Col xs={3}>
+            <Button size="lg" {...role.buttonProps}>{role.buttonLabel}</Button>
           </Col>
-        )}
-        <Col xs={3}>
-          <Button size="lg" onClick={handleBob} disabled={!state.acc}>Receive</Button>
-        </Col>
-      </Row>
+        </Row>
+      )}
     </Container>
   );
 }
