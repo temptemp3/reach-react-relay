@@ -139,7 +139,7 @@ function App() {
           <h1 className="text-center">{title.toUpperCase()}</h1>
         </Col>
         <Col className="text-center" xs={12}>
-          This runs on the <a href="https://testnet.algoexplorer.io/">Algorand Test Net</a>. Need funds? Try <a href="https://bank.testnet.algorand.network/">Algorand dispenser.</a>
+          This runs on the <a href="https://testnet.algoexplorer.io/">Algorand Test Net</a>. Need funds? Try <a href="https://bank.testnet.algorand.network/">Algorand dispenser</a>. Explore more <a href="https://temptemp3.github.io/dapps/">dapps</a>.
         </Col>
       </Row>
       <Row className="mt-5 role role-participant">
